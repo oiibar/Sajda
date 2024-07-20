@@ -2,14 +2,14 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import cityRoutes from "./routes/cities.routes.js";
-//https://prayer-cli.onrender.com
+//c
 
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: ["https://prayer-cli.onrender.com"],
     credentials: true,
     optionsSuccessStatus: 200,
   })

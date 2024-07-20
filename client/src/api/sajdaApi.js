@@ -2,7 +2,7 @@ import axios from "axios";
 export const getTime = async (selectedCity = "astana") => {
   try {
     const response = await axios.get(
-      `http://localhost:5000/api/${selectedCity}`
+      `https://prayer-serv.onrender.com/api/${selectedCity}`
     );
     return response.data;
   } catch (error) {
