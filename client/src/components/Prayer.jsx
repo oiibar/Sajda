@@ -1,20 +1,25 @@
 import React from "react";
 
-function Prayer({ state }) {
-  // Convert the object to an array of key-value pairs
+function Prayer({ state, isLoading }) {
+  const keys = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
+
   const entries = Object.entries(state);
+  const dataMap = new Map(entries);
 
   return (
     <div className="prayer">
-      {entries.length > 0 ? (
-        entries.map(([key, value], index) => (
-          <div key={index} className="flex justify-between mb-4">
-            <span>{key}:</span> <span>{value}</span>
-          </div>
-        ))
-      ) : (
-        <div>No data available</div>
-      )}
+      {isLoading
+        ? keys.map((key, index) => (
+            <div key={index} className="flex gap-10 justify-between mb-4">
+              <p>{key}:</p> <p className="font-bold">--:--</p>
+            </div>
+          ))
+        : keys.map((key, index) => (
+            <div key={index} className="flex gap-10 justify-between mb-4">
+              <p>{key}:</p>{" "}
+              <p className="font-bold">{dataMap.get(key) || "--:--"}</p>
+            </div>
+          ))}
     </div>
   );
 }
