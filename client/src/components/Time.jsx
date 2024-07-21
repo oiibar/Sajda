@@ -1,21 +1,21 @@
 import React from "react";
 
-function Prayer({ state, isLoading }) {
+function Time({ state, isLoading }) {
   const keys = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
 
   const entries = Object.entries(state);
   const dataMap = new Map(entries);
 
   return (
-    <div className="prayer">
+    <div className="times">
       {isLoading
         ? keys.map((key, index) => (
-            <div key={index} className="flex gap-10 justify-between mb-4">
+            <div key={index} className="time">
               <p>{key}:</p> <p className="font-bold">--:--</p>
             </div>
           ))
         : keys.map((key, index) => (
-            <div key={index} className="flex gap-10 justify-between mb-4">
+            <div key={index} className="time">
               <p>{key}:</p>{" "}
               <p className="font-bold">{dataMap.get(key) || "--:--"}</p>
             </div>
@@ -24,4 +24,4 @@ function Prayer({ state, isLoading }) {
   );
 }
 
-export default Prayer;
+export default Time;

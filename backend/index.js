@@ -2,13 +2,14 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import cityRoutes from "./routes/cities.routes.js";
+//["https://sajda-cli.vercel.app/api"]
 
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://sajda-cli.vercel.app/api"],
+    origin: "*",
     credentials: true,
     optionsSuccessStatus: 200,
   })

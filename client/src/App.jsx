@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Prayer from "./components/Prayer";
+import Time from "./components/Time";
 import CitySelector from "./components/CitySelector";
 import { getTime } from "./api/sajdaApi";
 import { formatDateTime } from "./utils/formatDate";
@@ -18,7 +18,6 @@ function App() {
       try {
         const data = await getTime(selectedCity);
         setState(data || {});
-        // Extract date from data and format it
         if (data && data.date) {
           setCurrentDateTime(formatDateTime(data.date));
         }
@@ -34,9 +33,8 @@ function App() {
   }, [selectedCity]);
 
   return (
-    <div className="relative h-screen text-black flex items-center flex-col justify-center bg-custom">
-      {/* Render formatted date and time */}
-      <div className="absolute top-4 left-4 text-white text-md">
+    <div className="relative h-screen flex items-center flex-col gap-10 justify-center bg-custom">
+      <div className="absolute top-4 left-4">
         <pre className="font-montserrat">{currentDateTime}</pre>
       </div>
       <CitySelector
@@ -44,7 +42,7 @@ function App() {
         selectedCity={selectedCity}
         setSelectedCity={setSelectedCity}
       />
-      <Prayer state={state} isLoading={isLoading} />
+      <Time state={state} isLoading={isLoading} />
     </div>
   );
 }

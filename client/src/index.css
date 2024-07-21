@@ -4,25 +4,20 @@
 
 @layer base {
   body {
-    @apply text-sm font-montserrat text-white;
+    @apply font-montserrat text-white;
   }
 }
 
 @layer components {
-  .prayer {
-    @apply bg-black p-5 mb-5 rounded-lg text-white text-center flex flex-col;
+  .times {
+    @apply bg-black p-5 rounded-lg flex flex-col gap-4;
+  }
+  .time {
+    @apply flex gap-10 justify-between;
   }
 }
 
 @layer utilities {
-  .btn-red {
-    @apply bg-red-800 hover:bg-red-600;
-  }
-  .btn-green {
-    @apply bg-green-600 hover:bg-green-800;
-  }
-
-  /* Custom background class */
   .bg-custom {
     background-image: url("./assets/bg.jpg");
     background-size: cover;
