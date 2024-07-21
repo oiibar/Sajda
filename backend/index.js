@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://prayer-cli.onrender.com"],
+    origin: ["https://sajda-cli.vercel.app/"],
     credentials: true,
     optionsSuccessStatus: 200,
   })
