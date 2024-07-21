@@ -6,30 +6,29 @@ import { formatDateTime } from "./utils/formatDate";
 
 const cities = ["Astana", "Almaty", "Oskemen", "Shymkent"];
 
-function App() {
+const App = () => {
   const [selectedCity, setSelectedCity] = useState(cities[0]);
-  const [state, setState] = useState({});
+  const [times, setTimes] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [currentDateTime, setCurrentDateTime] = useState("");
 
   useEffect(() => {
-    setIsLoading(true);
-    const fetchTime = async () => {
+    const fetchData = async () => {
+      setIsLoading(true);
       try {
         const data = await getTime(selectedCity);
-        setState(data || {});
-        if (data && data.date) {
+        setTimes(data || {});
+        if (data?.date) {
           setCurrentDateTime(formatDateTime(data.date));
         }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setState({});
+      } catch {
+        setTimes({});
       } finally {
         setIsLoading(false);
       }
     };
 
-    fetchTime();
+    fetchData();
   }, [selectedCity]);
 
   return (
@@ -42,9 +41,9 @@ function App() {
         selectedCity={selectedCity}
         setSelectedCity={setSelectedCity}
       />
-      <Time state={state} isLoading={isLoading} />
+      <Time times={times} isLoading={isLoading} />
     </div>
   );
-}
+};
 
 export default App;

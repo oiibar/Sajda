@@ -1,11 +1,7 @@
-// src/utils/formatDate.js
-
 export const formatDateTime = (dateStr) => {
-  // Parse the date from the API
   const [day, month, year] = dateStr.split("-").map(Number);
   const date = new Date(year, month - 1, day);
 
-  // Define arrays for days of the week and months
   const daysOfWeek = [
     "Sunday",
     "Monday",
@@ -30,11 +26,9 @@ export const formatDateTime = (dateStr) => {
     "December",
   ];
 
-  // Format date
   const dayOfWeek = daysOfWeek[date.getDay()];
   const formattedDateStr = `${dayOfWeek}\n${day} ${months[month - 1]} ${year}`;
 
-  // Get current time in 24-hour format
   const now = new Date();
   const formattedTimeStr = `${now.getHours().toString().padStart(2, "0")}:${now
     .getMinutes()
