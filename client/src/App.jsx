@@ -21,7 +21,8 @@ const App = () => {
         if (data?.date) {
           setCurrentDateTime(formatDateTime(data.date));
         }
-      } catch {
+      } catch (error) {
+        console.error("Failed to fetch time data:", error.message || error);
         setTimes({});
       } finally {
         setIsLoading(false);
@@ -39,7 +40,7 @@ const App = () => {
       <CitySelector
         cities={cities}
         selectedCity={selectedCity}
-        setSelectedCity={setSelectedCity}
+        onCityChange={setSelectedCity}
       />
       <Time times={times} isLoading={isLoading} />
     </div>

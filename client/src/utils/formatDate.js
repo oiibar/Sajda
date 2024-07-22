@@ -26,8 +26,9 @@ export const formatDateTime = (dateStr) => {
     "December",
   ];
 
-  const dayOfWeek = daysOfWeek[date.getDay()];
-  const formattedDateStr = `${dayOfWeek}\n${day} ${months[month - 1]} ${year}`;
+  const formattedDateStr = `${daysOfWeek[date.getDay()]}\n${day} ${
+    months[month - 1]
+  } ${year}`;
 
   const now = new Date();
   const formattedTimeStr = `${now.getHours().toString().padStart(2, "0")}:${now
