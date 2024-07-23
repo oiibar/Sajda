@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "*",
+    origin: ["https://sajda-cli.vercel.app"],
     credentials: true,
     optionsSuccessStatus: 200,
   })
@@ -20,3 +20,5 @@ app.use("/api", cityRoutes);
 app.listen(5000, () => {
   console.log(`Listening on port 5000`);
 });
+
+export default app;
