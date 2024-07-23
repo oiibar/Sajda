@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://sajda-serv.vercel.app//api",
+  baseURL: "https://sajda-serv.vercel.app/api",
   timeout: 5000,
 });
 
