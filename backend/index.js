@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://sajda-two.vercel.app/api"],
+    origin: ["https://sajda-two.vercel.app"],
     credentials: true,
     optionsSuccessStatus: 200,
   })
