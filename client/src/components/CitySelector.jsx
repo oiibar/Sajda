@@ -1,6 +1,6 @@
 import React from "react";
 
-const CitySelector = ({ cities, selectedCity, onCityChange }) => (
+const CitySelector = React.memo(({ cities, city, onCityChange }) => (
   <div>
     <label htmlFor="city" className="mr-2">
       Select City:
@@ -8,16 +8,16 @@ const CitySelector = ({ cities, selectedCity, onCityChange }) => (
     <select
       id="city"
       onChange={(e) => onCityChange(e.target.value)}
-      value={selectedCity}
+      value={city}
       className="p-2 rounded text-black"
     >
-      {cities.map((city) => (
-        <option key={city} value={city}>
-          {city}
+      {cities.map((cityName) => (
+        <option key={cityName} value={cityName}>
+          {cityName}
         </option>
       ))}
     </select>
   </div>
-);
+));
 
 export default CitySelector;

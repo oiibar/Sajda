@@ -1,8 +1,7 @@
 import React from "react";
+import { keys } from "../constants";
 
 const Time = ({ times, isLoading }) => {
-  const keys = ["Fajr", "Dhuhr", "Asr", "Maghrib", "Isha"];
-
   const renderTimes = () =>
     keys.map((key) => (
       <div key={key} className="time">

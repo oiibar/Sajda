@@ -2,14 +2,14 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import cityRoutes from "./routes/cities.routes.js";
-//["https://sajda-cli.vercel.app/api"]
 
+const PORT = 5000;
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://sajda-cli.vercel.app"],
+    origin: ["*"],
     credentials: true,
     optionsSuccessStatus: 200,
   })
@@ -17,8 +17,8 @@ app.use(
 
 app.use("/api", cityRoutes);
 
-app.listen(5000, () => {
-  console.log(`Listening on port 5000`);
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}`);
 });
 
 export default app;

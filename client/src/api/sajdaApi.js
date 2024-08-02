@@ -1,21 +1,18 @@
 import axios from "axios";
+import { BASE_URL } from "../constants";
 
 const api = axios.create({
-  baseURL: "https://sajda-serv.vercel.app/api",
-  timeout: 5000,
+  baseURL: BASE_URL,
 });
 
-export const getTime = async (selectedCity = "astana") => {
+export const getTime = async (city = "astana") => {
   try {
-    const response = await api.get(`/${selectedCity}`);
+    const response = await api.get(`/${city}`);
     return response.data;
   } catch (error) {
-    console.error(
-      `Error fetching time data for city "${selectedCity}":`,
-      error
-    );
+    console.error(`Error fetching time data for city "${city}":`, error);
     throw new Error(
-      `Failed to fetch time data for city "${selectedCity}". Please try again later.`
+      `Failed to fetch time data for city "${city}". Please try again later.`
     );
   }
 };
