@@ -8,9 +8,9 @@
 
 Here're some of the project's best features:
 
-- Fetches api
-- Displaying current time
-- Displaying prayer times
+- Caching fetched api
+- Displaying current date & time
+- Displaying prayer time details
 
 <h2>🛠️ Installation Steps:</h2>
 
