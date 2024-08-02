@@ -61,6 +61,7 @@ npm run dev
 Technologies used in the project:
 
 - ReactJS
+- ExpressJS
 - API
 - TailwindCSS
 
